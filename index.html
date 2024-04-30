@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <link rel="stylesheet" href="output.css">
+   <title>JRC</title>
+   <style>
+      .nav.show {
+         right: 10px;
+      }
+      .nav.hide {
+         right: -500px;
+      }
+      .active {
+         background-color: #4B5563; /* Update this color as needed */
+      }
+   </style>
+</head>
+<body>
+
+   <header class="fixed z-[100] w-full h-20 bg-slate-600 flex items-center justify-between px-8 md:px-20 ">
+      <h1 class="text-white font-bold text-2xl md:text-4xl">J<span class="text-slate-900">R</span>C</h1>
+      <button onclick="toggleMenu()" class="text-xl md:hidden text-white relative duration-300" id="menuBtn" ><i class="fa-solid fa-bars"></i></button>
+      <ul id="nav" class="nav flex flex-col md:hidden absolute right-[-500px] top-[90px] bg-slate-500 p-4 gap-4 rounded-md font-bold text-white transition-all duration-500 w-1/2">
+         <a onclick="removeNav()" href="#" class="w-full capitalize hover:bg-slate-800 p-2 px-4 rounded-md duration-300" onclick="hideNav()">home</a>
+         <a onclick="removeNav()" href="#" class="w-full capitalize hover:bg-slate-800 p-2 px-4 rounded-md duration-300" onclick="hideNav()">About Us</a>
+         <div class="relative z-10 transition-all duration-500">
+            <button onclick="viewBtn()"  class="w-full capitalize hover:bg-slate-800 p-2 px-4 rounded-md duration-300 text-start" >Project Overview <i>&#8595;</i></button>
+            <div id="view" class="absolute bg-slate-500 flex flex-col h-0 pt-4 rounded-md w-full overflow-hidden all duration-500 ">
+               <a href="#" class="capitalize hover:bg-slate-800 p-2 lg:px-4 m-2  rounded-md duration-300">Credentials</a>
+               <a href="#" class="capitalize hover:bg-slate-800 p-2 lg:px-4 m-2  rounded-md duration-300">Credentials</a>
+               <a href="#" class="capitalize hover:bg-slate-800 p-2 lg:px-4 m-2  rounded-md duration-300">Credentials</a>
+            </div>
+         </div>
+         <a onclick="removeNav()" href="#" class="w-full capitalize hover:bg-slate-800 p-2 px-4 rounded-md duration-300" onclick="hideNav()">Features</a>
+      </ul>
+      <!-- md -->
+      <ul class="hidden md:flex text-white font-bold items-center justify-center lg:space-x-2 gap-1 z-40">
+         <a onclick="removeNavMenu()" href="#" class="capitalize hover:bg-slate-800 p-2 lg:px-4  rounded-md duration-300">Home</a>
+         <a onclick="removeNavMenu()" href="#" class="capitalize hover:bg-slate-800 p-2 lg:px-4 rounded-md duration-300">About Us</a>
+         <!-- <div class="flex items-center "><button class="capitalize hover:bg-slate-800 p-2 lg:px-4 rounded-md duration-300">Project Overview <i class="font-bold md:text-4xl">&#8595;</i></button></div> -->
+         <div class="relative z-10 transition-all duration-500">
+            <button onclick="mdViewBtn()" class="capitalize hover:bg-slate-800 p-2 lg:px-4 rounded-md duration-300 ">Project Overview <i>&#8595;</i></button>
+            <div id="viewMenu" class="absolute bg-slate-600 flex flex-col h-0 pt-4 rounded-md w-full overflow-hidden all duration-500 ">
+               <a href="#" class="capitalize hover:bg-slate-800 p-2 lg:px-4 m-2  rounded-md duration-300">Credentials</a>
+               <a href="#" class="capitalize hover:bg-slate-800 p-2 lg:px-4 m-2  rounded-md duration-300">Credentials</a>
+               <a href="#" class="capitalize hover:bg-slate-800 p-2 lg:px-4 m-2  rounded-md duration-300">Credentials</a>
+            </div>
+         </div>
+         <a onclick="removeNavMenu()" href="#" class="capitalize hover:bg-slate-800 p-2 px-4 rounded-md duration-300">Features</a>
+      </ul>
+   </header>
+
+   <div id="home" class="bg-slate-700 w-full h-screen relative">
+
+      <img class="object-cover w-full h-full absolute" src="https://images.unsplash.com/photo-1559131397-f94da358f7ca?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt=""> 
+      <div class="flex flex-col absolute z-[2] w-full h-full  bg-slate-900/50">
+         <div class="min-w-[200px] max-w-[500px] bg-slate-400/60 p-4 rounded-lg flex flex-col gap-5 mt-40  mx-auto md:mx-0 md:ml-20"> 
+            <h1 class="text-xl md:text-3xl font-bold uppercase text-slate-800">Introduction</h1>
+            <p class="text-sm md:text-lg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam quasi vel dolor officiis sed maiores, alias qui, illum nemo minima possimus inventore cupiditate voluptates earum, sint in distinctio? Ea odit at facilis reiciendis temporibus laboriosam. Autem beatae, aliquid deleniti at possimus assumenda minima laboriosam eveniet perspiciatis vero perferendis ad reiciendis.</p>
+         </div>
+         
+      </div>
+
+   </div>
+
+</body>
+
+<script>
+   function toggleMenu() {
+      const nav = document.getElementById('nav');
+      nav.classList.toggle('show');
+
+      const menuBtnIcon = document.querySelector('#menuBtn i');
+      if (nav.classList.contains('show')) {
+         menuBtnIcon.className = 'fa-solid fa-x';
+      } else {
+         menuBtnIcon.className = 'fa-solid fa-bars';
+      }
+   }
+
+   const mdViewBtn = () => {
+      const view = document.getElementById('viewMenu');
+      console.log('Clicked');
+
+      // Check if 'h-auto' class is already applied to the element
+      const isExpanded = view.classList.contains('h-0') 
+                     ?
+                     (view.classList.remove('h-0'), view.classList.add('h-auto'))  
+                     :
+                     (view.classList.remove('h-auto'), view.classList.add('h-0')) 
+      ;
+      return isExpanded
+   }
+   
+   const viewBtn = () => {
+      const view = document.getElementById('view');
+      console.log('Clicked');
+
+      // Check if 'h-auto' class is already applied to the element
+      const isExpanded = view.classList.contains('h-0') 
+                        ?
+                        (view.classList.remove('h-0'), view.classList.add('h-auto'))  
+                        :
+                        (view.classList.remove('h-auto'), view.classList.add('h-0'));
+      return isExpanded
+   };
+   const removeNavMenu = () => {
+      const view = document.getElementById('viewMenu');
+      const isExpanded = view.classList.contains('h-auto');
+
+      // Toggle the height class based on the current state
+      if (isExpanded) {
+         view.classList.remove('h-auto')
+         view.classList.add('h-0')
+      }
+   }
+
+   const removeNav = () => {
+      const view = document.getElementById('view');
+      const isExpanded = view.classList.contains('h-auto');
+
+      // Toggle the height class based on the current state
+      if (isExpanded) {
+         view.classList.remove('h-auto')
+         view.classList.add('h-0')
+      }
+   }
+
+
+</script>
+</html>
