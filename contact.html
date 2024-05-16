@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +6,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
    <link rel="stylesheet" href="output.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
    <title>JRC</title>
    <style>
       .nav.show {
@@ -35,7 +37,7 @@
                <a href="technoloy.html" class="capitalize hover:bg-slate-800 p-2 lg:px-4 m-2  rounded-md duration-300">Technologies Used</a>
             </div>
          </div>
-         <a onclick="removeNav()" href="contact.html" class="w-full capitalize hover:bg-slate-800 p-2 px-4 rounded-md duration-300" onclick="hideNav()">Contact</a>
+         <a onclick="removeNav()" href="#" class="w-full capitalize hover:bg-slate-800 p-2 px-4 rounded-md duration-300" onclick="hideNav()">Contact</a>
       </ul>
       <!-- md -->
       <ul class="hidden md:flex text-white font-bold items-center justify-center lg:space-x-2 gap-1 z-40">
@@ -51,21 +53,29 @@
                <a href="technoloy.html" class="capitalize hover:bg-slate-800 p-2 lg:px-4 m-2  rounded-md duration-300">Technologies Used</a>
             </div>
          </div>
-         <a onclick="removeNavMenu()" href="contact.html" class="capitalize hover:bg-slate-800 p-2 px-4 rounded-md duration-300">Contact</a>
+         <a onclick="removeNavMenu()" href="#" class="capitalize hover:bg-slate-800 p-2 px-4 rounded-md duration-300">Contact</a>
       </ul>
    </header>
 
-   <div id="home" class="bg-slate-700 w-full h-screen relative">
-
-      <img class="object-cover w-full h-full absolute" src="https://images.unsplash.com/photo-1559131397-f94da358f7ca?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt=""> 
-      <div class="flex flex-col absolute z-[2] w-full h-full  bg-slate-900/50">
-         <div class="min-w-[200px] max-w-[600px] bg-slate-400/60 p-4 rounded-lg flex flex-col gap-5 mt-40  mx-auto md:mx-0 md:ml-20"> 
-            <h1 class="text-xl md:text-3xl font-bold uppercase text-slate-800">Introduction</h1>
-            <p class="text-sm md:text-lg">Student attendance in higher education institutions is a factor that impacts academic performance. Some higher education institutions have penalised students for poor attendance records. Most universities, however, have not implemented an automated attendance-taking system to deter poor attendance, leaving the task instead to instructors who manually record students' attendances into the system; a time-consuming and tedious undertaking, particularly, with a large number of students. This study primarily aimed to propose a Quick Response (QR) code-based attendance system, complete with several features to prevent attendance cheating. Students at the Centre for American Education, Sunway University tested a mobile application designed to scan QR codes, specifically generated for each classroom. The system checked three categories of data: subject class hour, registered mobile device, and geolocation. Once the information was verified, the student's attendance was recorded into the system. The proposed system succeeded in overcoming limitations encountered in the university's existing student attendance-taking system.</p>
+   <div id="about" class="bg-slate-700 w-full min-h-screen relative flex items-center justify-center flex-wrap gap-4 pt-24 text-white">
+      <form class="flex flex-col w-full p-4 md:w-1/2 gap-4">
+         <label for="fname">First Name</label>
+         <input type="text" id="fname" name="firstname" placeholder="Your name.." class="p-2 rounded-md">
+         <label for="lname">Last Name</label>
+         <input type="text" id="lname" name="lastname" placeholder="Your last name.." class="p-2 rounded-md">
+         <label for="subject">Message</label>
+         <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px" class="rounded-md p-2"></textarea>
+         <input type="submit" value="Submit" class="bg-slate-500 p-2 rounded-md cursor-pointer">
+         <div>
+            <a href="https://www.facebook.com/pausalbern" class="text-2xl mr-4"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://www.instagram.com/cyrelbern/" class="text-2xl mr-4"><i class="fa-brands fa-instagram"></i></a>
+            <a href="" class="text-2xl mr-4"><i class="fa-brands fa-twitter"></i></a>
+            <a href="" class="text-2xl mr-4"><i class="fa-brands fa-linkedin"></i></a>
          </div>
-         
-      </div>
+       </form>
    </div>
+
+   
 
 </body>
 

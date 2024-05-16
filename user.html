@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <link rel="stylesheet" href="output.css">
+   <title>JRC</title>
+   <style>
+      .nav.show {
+         right: 10px;
+      }
+      .nav.hide {
+         right: -500px;
+      }
+      .active {
+         background-color: #4B5563; /* Update this color as needed */
+      }
+   </style>
+</head>
+<body>
+
+   <header class="fixed z-[100] w-full h-20 bg-slate-600 flex items-center justify-between px-8 md:px-20 ">
+      <h1 class="text-white font-bold text-2xl lg:text-3xl">QR Code<span class="text-slate-900"> Classroom</span> Attendance</h1>
+      <button onclick="toggleMenu()" class="text-xl md:hidden text-white relative duration-300" id="menuBtn" ><i class="fa-solid fa-bars"></i></button>
+      <ul id="nav" class="nav flex flex-col md:hidden absolute right-[-500px] top-[90px] bg-slate-500 p-4 gap-1 lg:gap-4 rounded-md font-bold text-white transition-all duration-500 w-1/2">
+         <a onclick="removeNav()" href="index.html" class="w-full capitalize hover:bg-slate-800 p-2 px-4 rounded-md duration-300" onclick="hideNav()">home</a>
+         <a onclick="removeNav()" href="about.html" class="w-full capitalize hover:bg-slate-800 p-2 px-4 rounded-md duration-300" onclick="hideNav()">About Us</a>
+         <div class="relative z-10 transition-all duration-500">
+            <button onclick="viewBtn()"  class="w-full capitalize hover:bg-slate-800 p-2 px-4 rounded-md duration-300 text-start" >Project Overview <i>&#8595;</i></button>
+            <div id="view" class="absolute bg-slate-500 flex flex-col h-0 pt-4 rounded-md w-full overflow-hidden all duration-500 ">
+               <a href="features.html" class="capitalize hover:bg-slate-800 p-2 lg:px-4 m-2  rounded-md duration-300">Features</a>
+               <a href="develepment.html" class="capitalize hover:bg-slate-800 p-2 lg:px-4 m-2  rounded-md duration-300">Development Process</a>
+               <a href="user.html" class="capitalize hover:bg-slate-800 p-2 lg:px-4 m-2  rounded-md duration-300">User Guide</a>
+               <a href="technoloy.html" class="capitalize hover:bg-slate-800 p-2 lg:px-4 m-2  rounded-md duration-300">Technologies Used</a>
+            </div>
+         </div>
+         <a onclick="removeNav()" href="contact.html" class="w-full capitalize hover:bg-slate-800 p-2 px-4 rounded-md duration-300" onclick="hideNav()">Contact</a>
+      </ul>
+      <!-- md -->
+      <ul class="hidden md:flex text-white font-bold items-center justify-center lg:space-x-2 gap-1 z-40">
+         <a onclick="removeNavMenu()" href="index.html" class="capitalize hover:bg-slate-800 p-2 lg:px-4  rounded-md duration-300">Home</a>
+         <a onclick="removeNavMenu()" href="about.html" class="capitalize hover:bg-slate-800 p-2 lg:px-4 rounded-md duration-300">About Us</a>
+         <!-- <div class="flex items-center "><button class="capitalize hover:bg-slate-800 p-2 lg:px-4 rounded-md duration-300">Project Overview <i class="font-bold md:text-4xl">&#8595;</i></button></div> -->
+         <div class="relative z-10 transition-all duration-500">
+            <button onclick="mdViewBtn()" class="capitalize hover:bg-slate-800 p-2 lg:px-4 rounded-md duration-300 ">Project Overview <i>&#8595;</i></button>
+            <div id="viewMenu" class="absolute bg-slate-600 flex flex-col h-0 pt-4 rounded-md w-full overflow-hidden all duration-500 ">
+               <a href="features.html" class="capitalize hover:bg-slate-800 p-2 lg:px-4 m-2  rounded-md duration-300">Features</a>
+               <a href="develepment.html" class="capitalize hover:bg-slate-800 p-2 lg:px-4 m-2  rounded-md duration-300">Development Process</a>
+               <a href="user.html" class="capitalize hover:bg-slate-800 p-2 lg:px-4 m-2  rounded-md duration-300">User Guide</a>
+               <a href="technoloy.html" class="capitalize hover:bg-slate-800 p-2 lg:px-4 m-2  rounded-md duration-300">Technologies Used</a>
+            </div>
+         </div>
+         <a onclick="removeNavMenu()" href="contact.html" class="capitalize hover:bg-slate-800 p-2 px-4 rounded-md duration-300">Contact</a>
+      </ul>
+   </header>
+
+   <div id="user" class="bg-slate-700 w-full min-h-screen relative flex items-center justify-center text-white p-4 pt-32">
+
+      <div class="md:w-[80%]">
+         <h1 class="font-bold text-2xl md:text-6xl text-center my-8">Your Guide To Using QR Codes for Attendance</h1>
+         <img class="mx-auto" src="https://qrcg-media.s3.eu-central-1.amazonaws.com/wp-content/uploads/2023/10/03111119/qr-codes-business-networking-resized.png" alt="">
+         <h1  class="font-bold text-xl md:text-4xl text-center my-4">How do you use QR Codes for attendance?</h1>
+         <p class="text-base md:text-lg">QR Codes (also called “2D barcodes”) are a type of barcode that encodes various types of information, including text, URLs, and contact information. The device decodes and processes the embedded information when scanned using a smartphone camera or mobile app.
+
+            QR Codes have many use cases and functionalities, including attendance tracking. Each event attendee has a custom QR Code unique to them. Attendees can receive their unique QR Codes digitally via email or mobile app, but organizers can also print them on badges or other physical items.
+            
+            To check-in and record attendance, all they have to do is scan their QR Code upon arrival!</p>
+         <h1 class="font-bold text-xl md:text-4xl text-center my-4">Why are QR Codes good for attendance tracking?</h1>
+         <p class="text-base md:text-lg">Using a QR Code attendance tracker offers several key benefits, with ease and efficiency being the biggest. Along with the obvious advantage of being much less time-consuming than roll call in an Excel or Google Sheet, here are a few of the top reasons why QR Codes are a great tool for attendance tracking:</p>
+         <h2 class="font-bold text-lg md:text-3xl my-2">Digital system integration</h2>
+         <p class="text-base md:text-lg">QR Codes effortlessly integrate with various digital systems, including attendance tracking tools. This allows data to move from the QR Codes and scanning device directly to other systems, eliminating the need for manual data entry.</p>
+         <h2 class="font-bold text-lg md:text-3xl my-2">Attendance data</h2>
+         <p class="text-base md:text-lg">Taking attendance is only one of the tasks associated with attendance tracking. After taking roll, you have to enter that data into whatever system your school or business uses.
+
+            Along with eliminating the need for manual data entry by automatically capturing and transmitting information in real-time, using QR Codes to track attendance can provide additional data and insights such as on-time history and attendance frequency.</p>
+         <h2 class="font-bold text-lg md:text-3xl my-2">Touch-free accuracy</h2>
+         <p class="text-base md:text-lg">One big benefit of QR Codes is that you don’t ever have to touch them when you scan them. Being touch-free offers a couple of advantages, the first being safety. Ever since the COVID-19 pandemic, reducing the spread of infectious diseases has been a top priority for many organizations. 
+
+            In addition to helping prevent the spread of germs, this also reduces the potential for errors (such as accidentally marking someone absent because your fingers touched the wrong part of the screen).</p>
+         <h2 class="font-bold text-lg md:text-3xl my-2">Flexible customization</h2>
+         <p class="text-base md:text-lg">QR Codes can store a lot of different information, which means that they allow for a lot of flexibility and customization options when creating a QR Code attendance tracking system like:
+
+            *Displaying images or special messages when scanned
+            *Playing videos
+            *Linking people to online resources
+
+            All these different features help you create QR Codes that offer personalized experiences for your students, employees, or event attendees.</p>
+         <h2 class="font-bold text-lg md:text-3xl my-2">Environmentally-friendly</h2>
+         <p class="text-base md:text-lg">QR Code attendance tracking is a fully digital solution that eliminates the need for paper lists and attendance forms. While it may not seem like much, creating a new form every day for taking class attendance can waste a lot of paper. Tracking attendance with QR Codes reduces this paper waste, supporting your organization’s green initiatives.</p>
+         <h1 class="font-bold text-xl md:text-4xl text-center my-4">When to use QR Codes for attendance tracking</h1>
+         <p class="text-base md:text-lg">Whenever you need to record the attendance of a large group of people, QR Codes are the most efficient and accurate way to get the job done. But to be more specific, let’s look at a few settings where tracking attendance via QR Codes makes the most sense.</p>
+         <h2 class="font-bold text-lg md:text-3xl my-2">Education</h2>
+         <p class="text-base md:text-lg">At large schools and universities, there can sometimes be as many as several hundred students in a single class. Even in smaller ones, tracking attendance with QR Codes is the fastest and most reliable way to make sure students are present. 
+
+            You can also use QR Codes in educational institutions to record attendance in non-classroom settings, such as science labs, field trips, and special events.</p>
+         <h2 class="font-bold text-lg md:text-3xl my-2">Events and conferences</h2>
+         <p class="text-base md:text-lg">Attendance isn’t always required at events and conferences like in some other settings, but it’s still nice to have data on who showed up. Using QR Codes for event management gives you the opportunity to deliver more customizable experiences for guests.
+
+            Whether this means playing a funny animation when they check in, linking them to the resources they’ll need, or gifting them a digital gift card, QR Codes give you plenty of room for creativity in conference marketing.</p>
+         <h2 class="font-bold text-lg md:text-3xl my-2">Corporate training sessions</h2>
+         <p class="text-base md:text-lg">Many organizations choose to track attendance during internal training sessions to ensure all team members are present and participating. QR Codes are ideal for tracking attendance at these events, since they make the process quick and hassle-free, ensuring that it doesn’t take up too much time on the schedule.
+
+            As with tracking attendance at events and conferences, you can also use the opportunity to create personalized experiences for your employees.</p>
+         <h2 class="font-bold text-lg md:text-3xl my-2">How to set up a QR Code attendance system</h2>
+         <p class="text-base md:text-lg">Thanks to tools like QR Code Generator PRO, using QR Codes to track attendance has never been easier. Here’s how to set up your QR Code attendance system.</p>
+         <h2 class="font-bold text-lg md:text-3xl my-2">1. Figure out your requirements</h2>
+         <p class="text-base md:text-lg">First, determine your needs. This includes considerations such as:
+
+            *The number of attendees.
+            *The frequency of events.
+            *The type of attendance data that you plan to collect.
+
+            In most situations, a simple check-in system is all you need. However, if you plan to track other details, such as sessions attended within a conference or time of entry, you’ll need a system that can collect this additional data.</p>
+         <h2 class="font-bold text-lg md:text-3xl my-2">2. Sign up for QR Code Generator</h2>
+         <p class="text-base md:text-lg">To create QR Codes for attendance tracking, you’ll need to use a tool designed for generating custom codes. With QR Code Generator, creating, distributing, and tracking custom QR Codes is easy.
+
+            QR Code Generator allows you to make high-resolution, printable QR Codes with just a few clicks. Once you create one for each of your attendees, you can use QR Code Generator’s user-friendly Dashboard to track attendance data and other actionable insights in real-time.
+            
+            The tool also provides ample specialization options, enabling you to track whatever attendance data you choose and create personalized experiences for your attendees.
+            
+            Using QR Code Generator is by far the quickest and most effective way to set up a QR Code attendance system. Sign up for QR Code Generator to see how easy the process can be—when you use the right tool!</p>
+         <h2 class="font-bold text-lg md:text-3xl my-2">3. Generate your unique QR Codes</h2>
+         <p class="text-base md:text-lg">After designing your QR Codes, including how they look and the information they store, it’s time to actually generate them. Keep in mind that every person whose attendance you want to track will need their own unique code.
+
+            Thankfully, QR Code Generator allows you to generate QR Codes in bulk with just the tap of a button!</p>
+         <h2 class="font-bold text-lg md:text-3xl my-2">4. Distribute the QR Codes</h2>
+         <p class="text-base md:text-lg">When distributing the QR Codes you generate for attendees, you have two primary options. You can print them off and put them on cards or badges, or you can distribute them digitally via email.
+
+            Whichever option you choose, you’ll also need to create a QR Code survey for actually collecting the attendance data. Do this by making a Google Form and then linking the QR Codes to it so that guests are able to log their attendance after scanning in.</p>
+         <h2 class="font-bold text-lg md:text-3xl my-2">5. Set up your scanning infrastructure</h2>
+         <p class="text-base md:text-lg">Ensuring that the scanning process is accessible and efficient is a major key to setting up a QR Code attendance system. You can have attendees scan their QR Codes using their own mobile devices, or you can provide dedicated scanners near the entrance.
+
+            Remember, all attendees must be able to scan the QR Codes for this system to work. For example, if you require them to use their own devices, you’ll need to make sure everyone has a smartphone or tablet capable of scanning QR Codes. Alternatively, if you plan to provide the device(s) yourself, ensure you provide enough and that each participant can access what they need on the system.</p>
+         <h2 class="font-bold text-lg md:text-3xl my-2">6. Integrate with the database</h2>
+         <p class="text-base md:text-lg">Centralizing your attendance data in a database is key to keeping it organized and ensuring easy analysis. With QR Code Generator, the database automatically receives transmitted attendance data for efficient storage and analysis. QR Code Generator also gives you the option to export the information you collect into shareable CSV reports.</p>
+         <h2 class="font-bold text-lg md:text-3xl my-2">7. Perform a test run</h2>
+         <p class="text-base md:text-lg">Once your QR Code attendance system is up and running, it’s a good idea to test it out to make sure everything works. Scan each code yourself to ensure:
+
+           *You configured the QR Codes properly.
+           *The attendance form they link to is functional.
+           *The data goes to the database.
+
+            Performing this test run ahead of time will help you avoid any hiccups when it’s time for full-scale implementation.</p>
+         <h2 class="font-bold text-lg md:text-3xl my-2">8. Roll out, educate, and monitor</h2>
+         <p class="text-base md:text-lg">It may take a little while for everyone (including yourself) to get used to the new system, so it’s important to be patient. Educate all attendees on how it works and what they need to make sure everything goes smoothly.
+
+            As you go about using your new QR Code attendance system, be on the lookout for improvement opportunities. Since QR Codes offer so many customization options, you may find plenty of ways to make your attendance system more efficient and insightful.</p>
+         <h1 class="font-bold text-xl md:text-4xl text-center my-4">Embrace the future of attendance tracking with QR Code Generator</h1>
+         <p class="text-base md:text-lg">In today’s digital world, taking attendance manually is a thing of the past! Thanks to clear advantages such as reduced hassle and improved accuracy, QR Codes represent both the present and future of attendance tracking.
+
+            If you want to create a fully customized QR Code attendance tracking system, QR Code Generator is the perfect tool.</p>
+      </div>
+         
+   </div>
+   
+
+</body>
+
+<script>
+   function toggleMenu() {
+      const nav = document.getElementById('nav');
+      nav.classList.toggle('show');
+
+      const menuBtnIcon = document.querySelector('#menuBtn i');
+      if (nav.classList.contains('show')) {
+         menuBtnIcon.className = 'fa-solid fa-x';
+      } else {
+         menuBtnIcon.className = 'fa-solid fa-bars';
+      }
+   }
+
+   const mdViewBtn = () => {
+      const view = document.getElementById('viewMenu');
+      console.log('Clicked');
+
+      // Check if 'h-auto' class is already applied to the element
+      const isExpanded = view.classList.contains('h-0') 
+                     ?
+                     (view.classList.remove('h-0'), view.classList.add('h-auto'))  
+                     :
+                     (view.classList.remove('h-auto'), view.classList.add('h-0')) 
+      ;
+      return isExpanded
+   }
+   
+   const viewBtn = () => {
+      const view = document.getElementById('view');
+      console.log('Clicked');
+
+      // Check if 'h-auto' class is already applied to the element
+      const isExpanded = view.classList.contains('h-0') 
+                        ?
+                        (view.classList.remove('h-0'), view.classList.add('h-auto'))  
+                        :
+                        (view.classList.remove('h-auto'), view.classList.add('h-0'));
+      return isExpanded
+   };
+   const removeNavMenu = () => {
+      const view = document.getElementById('viewMenu');
+      const isExpanded = view.classList.contains('h-auto');
+
+      // Toggle the height class based on the current state
+      if (isExpanded) {
+         view.classList.remove('h-auto')
+         view.classList.add('h-0')
+      }
+   }
+
+   const removeNav = () => {
+      const view = document.getElementById('view');
+      const isExpanded = view.classList.contains('h-auto');
+
+      // Toggle the height class based on the current state
+      if (isExpanded) {
+         view.classList.remove('h-auto')
+         view.classList.add('h-0')
+      }
+   }
+
+
+</script>
+</html>

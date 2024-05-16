@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,17 +55,22 @@
          <a onclick="removeNavMenu()" href="contact.html" class="capitalize hover:bg-slate-800 p-2 px-4 rounded-md duration-300">Contact</a>
       </ul>
    </header>
-
-   <div id="home" class="bg-slate-700 w-full h-screen relative">
-
-      <img class="object-cover w-full h-full absolute" src="https://images.unsplash.com/photo-1559131397-f94da358f7ca?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt=""> 
-      <div class="flex flex-col absolute z-[2] w-full h-full  bg-slate-900/50">
-         <div class="min-w-[200px] max-w-[600px] bg-slate-400/60 p-4 rounded-lg flex flex-col gap-5 mt-40  mx-auto md:mx-0 md:ml-20"> 
-            <h1 class="text-xl md:text-3xl font-bold uppercase text-slate-800">Introduction</h1>
-            <p class="text-sm md:text-lg">Student attendance in higher education institutions is a factor that impacts academic performance. Some higher education institutions have penalised students for poor attendance records. Most universities, however, have not implemented an automated attendance-taking system to deter poor attendance, leaving the task instead to instructors who manually record students' attendances into the system; a time-consuming and tedious undertaking, particularly, with a large number of students. This study primarily aimed to propose a Quick Response (QR) code-based attendance system, complete with several features to prevent attendance cheating. Students at the Centre for American Education, Sunway University tested a mobile application designed to scan QR codes, specifically generated for each classroom. The system checked three categories of data: subject class hour, registered mobile device, and geolocation. Once the information was verified, the student's attendance was recorded into the system. The proposed system succeeded in overcoming limitations encountered in the university's existing student attendance-taking system.</p>
-         </div>
-         
-      </div>
+   <div id="features" class="bg-slate-700 w-full min-h-screen relative flex items-center justify-center flex-wrap gap-4 md:gap-12 pt-24 text-white">
+      <img class="object-cover top-0 w-full h-full absolute" src="https://attendezz.com/img/scanning.svg" alt="">
+      <div class="absolute w-full h-full top-0 left-0 bottom-0 bg-black/60 z-[2]"></div>
+      <ul class="flex flex-col gap-4  text-sm md:text-2xl md:p-0 z-10 rounded-md">
+         <li>1. Unique QR Codes: Each student is provided with a unique QR code that can be scanned for attendance.</li>
+         <li>2. QR Code Scanning: Instructors or students can scan the QR codes using a smartphone or tablet to register attendance.</li>
+         <li>3. Time Stamping: The system records the exact date and time when the QR code is scanned, ensuring accurate tracking of attendance.</li>
+         <li>4. Real-Time Updates: Attendance records are updated in real-time and can be accessed by both students and teachers instantly.</li>
+         <li>5. Automated Reporting: The system generates automated attendance reports, which can be reviewed by instructors and administrators.</li>
+         <li>6. Notifications: Automatic notifications can be sent to students who are absent or late.</li>
+         <li>7. Integration with Learning Management Systems (LMS): The attendance data can be integrated with existing LMS platforms for streamlined record-keeping and analysis.</li>
+         <li>8. Security Features: Measures to prevent fraudulent attendance marking, such as QR codes that change periodically or are valid only for a specific time window.</li>
+         <li>9. User-Friendly Interface: An intuitive interface for both teachers and students to use the system without extensive training.</li>
+         <li>10. Analytics: Tools to analyze attendance patterns and generate insights, such as identifying students with frequent absences.</li>
+      </ul>
+      
    </div>
 
 </body>

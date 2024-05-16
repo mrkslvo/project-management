@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <link rel="stylesheet" href="output.css">
+   <title>JRC</title>
+   <style>
+      .nav.show {
+         right: 10px;
+      }
+      .nav.hide {
+         right: -500px;
+      }
+      .active {
+         background-color: #4B5563; /* Update this color as needed */
+      }
+   </style>
+</head>
+<body>
+
+   <header class="fixed z-[100] w-full h-20 bg-slate-600 flex items-center justify-between px-8 md:px-20 ">
+      <h1 class="text-white font-bold text-2xl lg:text-3xl">QR Code<span class="text-slate-900"> Classroom</span> Attendance</h1>
+      <button onclick="toggleMenu()" class="text-xl md:hidden text-white relative duration-300" id="menuBtn" ><i class="fa-solid fa-bars"></i></button>
+      <ul id="nav" class="nav flex flex-col md:hidden absolute right-[-500px] top-[90px] bg-slate-500 p-4 gap-1 lg:gap-4 rounded-md font-bold text-white transition-all duration-500 w-1/2">
+         <a onclick="removeNav()" href="index.html" class="w-full capitalize hover:bg-slate-800 p-2 px-4 rounded-md duration-300" onclick="hideNav()">home</a>
+         <a onclick="removeNav()" href="about.html" class="w-full capitalize hover:bg-slate-800 p-2 px-4 rounded-md duration-300" onclick="hideNav()">About Us</a>
+         <div class="relative z-10 transition-all duration-500">
+            <button onclick="viewBtn()"  class="w-full capitalize hover:bg-slate-800 p-2 px-4 rounded-md duration-300 text-start" >Project Overview <i>&#8595;</i></button>
+            <div id="view" class="absolute bg-slate-500 flex flex-col h-0 pt-4 rounded-md w-full overflow-hidden all duration-500 ">
+               <a href="features.html" class="capitalize hover:bg-slate-800 p-2 lg:px-4 m-2  rounded-md duration-300">Features</a>
+               <a href="develepment.html" class="capitalize hover:bg-slate-800 p-2 lg:px-4 m-2  rounded-md duration-300">Development Process</a>
+               <a href="user.html" class="capitalize hover:bg-slate-800 p-2 lg:px-4 m-2  rounded-md duration-300">User Guide</a>
+               <a href="technoloy.html" class="capitalize hover:bg-slate-800 p-2 lg:px-4 m-2  rounded-md duration-300">Technologies Used</a>
+            </div>
+         </div>
+         <a onclick="removeNav()" href="contact.html" class="w-full capitalize hover:bg-slate-800 p-2 px-4 rounded-md duration-300" onclick="hideNav()">Contact</a>
+      </ul>
+      <!-- md -->
+      <ul class="hidden md:flex text-white font-bold items-center justify-center lg:space-x-2 gap-1 z-40">
+         <a onclick="removeNavMenu()" href="index.html" class="capitalize hover:bg-slate-800 p-2 lg:px-4  rounded-md duration-300">Home</a>
+         <a onclick="removeNavMenu()" href="about.html" class="capitalize hover:bg-slate-800 p-2 lg:px-4 rounded-md duration-300">About Us</a>
+         <!-- <div class="flex items-center "><button class="capitalize hover:bg-slate-800 p-2 lg:px-4 rounded-md duration-300">Project Overview <i class="font-bold md:text-4xl">&#8595;</i></button></div> -->
+         <div class="relative z-10 transition-all duration-500">
+            <button onclick="mdViewBtn()" class="capitalize hover:bg-slate-800 p-2 lg:px-4 rounded-md duration-300 ">Project Overview <i>&#8595;</i></button>
+            <div id="viewMenu" class="absolute bg-slate-600 flex flex-col h-0 pt-4 rounded-md w-full overflow-hidden all duration-500 ">
+               <a href="features.html" class="capitalize hover:bg-slate-800 p-2 lg:px-4 m-2  rounded-md duration-300">Features</a>
+               <a href="develepment.html" class="capitalize hover:bg-slate-800 p-2 lg:px-4 m-2  rounded-md duration-300">Development Process</a>
+               <a href="user.html" class="capitalize hover:bg-slate-800 p-2 lg:px-4 m-2  rounded-md duration-300">User Guide</a>
+               <a href="technoloy.html" class="capitalize hover:bg-slate-800 p-2 lg:px-4 m-2  rounded-md duration-300">Technologies Used</a>
+            </div>
+         </div>
+         <a onclick="removeNavMenu()" href="contact.html" class="capitalize hover:bg-slate-800 p-2 px-4 rounded-md duration-300">Contact</a>
+      </ul>
+   </header>
+
+   <div id="home" class="bg-slate-700 w-full min-h-screen relative pb-40">
+
+      <div class="flex flex-wrap absolute z-[2] w-full min-h-full  bg-slate-700 gap-4 items-center justify-center">
+         <h1 class="mt-40 text-center w-full text-2xl md:text-6xl font-bold text-white">Technology Used</h1>
+         <P class="text-center w-full text-l md:text-2xl font-bold text-white" >The technology stack for a QR code-based classroom attendance system typically involves a combination of hardware and software components, spanning various development and deployment platforms. Here's an overview of the technology used:</P>
+         <div class=" flex items-center justify-center gap-4 flex-wrap w-full p-8 md:p-0">
+            <div class="min-h-[400px] min-w-[300px] max-w-[600px] bg-slate-400/60 p-4 rounded-lg flex flex-col gap-5 mx-auto md:mx-0"> 
+               <h1 class="text-xl md:text-3xl font-bold uppercase text-slate-800">1. QR Code Generation and Scanning</h1>
+               <p class="text-sm md:text-lg">
+                 <ul>Libraries/SDKs for QR Code Generation:
+                  <li>-Python: qrcode, Pillow</li>
+                  <li>-JavaScript: qrcodejs, QRCodeGenerator</li>
+                  <li>-Java: ZXing, QRGen</li>
+                  <li>-C#: ZXing.Net, QRCoder</li>
+                  </ul>
+                  <ul>Libraries/SDKs for QR Code Scanning:
+                  <li>-Android: Google ML Kit, ZXing</li>
+                  <li>-iOS: AVFoundation, ZXing</li>
+                  <li>-Web: html5-qrcode, instascan</li>
+                  </ul>
+               </p>
+         </div>
+         <div class="min-w-[200px] max-w-[600px] bg-slate-400/60 p-4 rounded-lg flex flex-col gap-5 mx-auto md:mx-0 min-h-[400px]"> 
+               <h1 class="text-xl md:text-3xl font-bold uppercase text-slate-800">2. Frontend Development</h1>
+               <p class="text-sm md:text-lg">
+                  <ul>Mobile Applications:
+                     <li>-Android: Java/Kotlin with Android Studio</li>
+                     <li>-iOS: Swift with Xcode</li>
+                     <li>-Cross-Platform: React Native, Flutter</li>
+                  </ul>
+                  <ul>Web Interface:
+                     <li>-HTML, CSS, JavaScript for basic structure and styling</li>
+                     <li>-Frameworks/Libraries: React, Angular, Vue.js for dynamic and responsive UI</li>
+                  </ul>
+               </p>
+         </div>
+         <div class="min-w-[200px] max-w-[600px] bg-slate-400/60 p-4 rounded-lg flex flex-col gap-5 mx-auto md:mx-0 min-h-[400px]"> 
+               <h1 class="text-xl md:text-3xl font-bold uppercase text-slate-800">3. Backend Development</h1>
+               <p class="text-sm md:text-lg">
+                  <ul>Server-Side Languages:
+                     <li>-Node.js: For building scalable server-side applications</li>
+                     <li>-Python: Flask, Django for rapid development</li>
+                     <li>-Java: Spring Boot for enterprise-level applications</li>
+                     <li>-C#: ASP.NET for robust web applications</li>
+                  </ul>
+                  <ul>Database Management Systems (DBMS):
+                     <li>-Relational Databases: MySQL, PostgreSQL</li>
+                     <li>-NoSQL Databases: MongoDB, Firebase Firestore for flexible and scalable storage</li>
+                  </ul>
+               </p>
+            </div>
+         </div>
+         <div class="min-w-[200px] max-w-[600px] bg-slate-400/60 p-4 rounded-lg flex flex-col gap-5 mx-auto md:mx-0 min-h-[400px]"> 
+               <h1 class="text-xl md:text-3xl font-bold uppercase text-slate-800">4. APIs and Web Services</h1>
+               <p class="text-sm md:text-lg">
+                  <ul>RESTful APIs:
+                     <li>-For communication between frontend and backend, typically using frameworks like Express.js (Node.js), Django REST framework (Python), or Spring Boot (Java)</li>
+                  </ul>
+                  <ul>GraphQL:
+                     <li>-An alternative to REST for more efficient data querying and manipulation</li>
+                  </ul>
+               </p>
+         </div>
+         <div class="min-w-[200px] max-w-[600px] bg-slate-400/60 p-4 rounded-lg flex flex-col gap-5 mx-auto md:mx-0 min-h-[400px]"> 
+               <h1 class="text-xl md:text-3xl font-bold uppercase text-slate-800">5. Cloud Services</h1>
+               <p class="text-sm md:text-lg">
+                  <ul>Hosting and Backend as a Service (BaaS): 
+                     <li>-Amazon Web Services (AWS): EC2, S3, RDS</li>
+                     <li>-Google Cloud Platform (GCP): App Engine, Cloud Storage, Firestore</li>
+                     <li>-Microsoft Azure: Azure App Service, Azure SQL Database</li>
+
+                  </ul>
+                  <ul>Serverless Architecture:
+                     <li>-AWS Lambda, Google Cloud Functions, Azure Functions for handling backend logic without managing servers</li>
+
+                  </ul>
+               </p>
+         </div>
+         <div class="min-w-[200px] max-w-[600px] bg-slate-400/60 p-4 rounded-lg flex flex-col gap-5 mx-auto md:mx-0 min-h-[400px]"> 
+               <h1 class="text-xl md:text-3xl font-bold uppercase text-slate-800">6. Authentication and Security</h1>
+               <p class="text-sm md:text-lg">
+                  <ul>User Authentication:
+                     <li>-OAuth 2.0, JWT (JSON Web Tokens) for secure user authentication and session management</li>
+                  </ul>
+                  <ul>Data Encryption:
+                     <li>-SSL/TLS for secure data transmission</li>
+                     <li>-AES, RSA for data encryption</li>
+                  </ul>
+               </p>
+            </div>
+         <div class="min-w-[200px] max-w-[600px] bg-slate-400/60 p-4 rounded-lg flex flex-col gap-5 mx-auto md:mx-0 min-h-[400px]"> 
+               <h1 class="text-xl md:text-3xl font-bold uppercase text-slate-800">7. Real-Time Data and Notifications</h1>
+               <p class="text-sm md:text-lg">
+                  <ul>Real-Time Databases:
+                     <li>-Firebase Realtime Database, Firestore for real-time data updates</li>
+                  </ul>
+                  <ul>Push Notifications:
+                     <li>-Firebase Cloud Messaging (FCM), Apple Push Notification Service (APNS)</li>
+                  </ul>
+               </p>
+            </div>
+         <div class="min-w-[200px] max-w-[600px] bg-slate-400/60 p-4 rounded-lg flex flex-col gap-5 mx-auto md:mx-0 min-h-[400px]"> 
+               <h1 class="text-xl md:text-3xl font-bold uppercase text-slate-800">8. Analytics and Reporting</h1>
+               <p class="text-sm md:text-lg">
+                  <ul>Analytics Tools:
+                     <li>-Google Analytics, Firebase Analytics for tracking user engagement and system usage</li>
+                  </ul>
+                  <ul>Reporting Tools:
+                     <li>-Libraries like D3.js, Chart.js for creating interactive and visual reports</li>
+                     <li>-PDF generation libraries like jsPDF for downloadable reports</li>
+                  </ul>
+               </p>
+            </div>
+         <div class="min-w-[200px] max-w-[600px] bg-slate-400/60 p-4 rounded-lg flex flex-col gap-5 mx-auto md:mx-0 min-h-[400px]"> 
+               <h1 class="text-xl md:text-3xl font-bold uppercase text-slate-800">9. Development Tools</h1>
+               <p class="text-sm md:text-lg">
+                  <ul>Version Control:
+                     <li>-Git, GitHub, GitLab for source code management</li>
+                  </ul>
+                  <ul>Integrated Development Environments (IDEs):
+                     <li>-Visual Studio Code, IntelliJ IDEA, PyCharm, Android Studio, Xcode</li>
+                  </ul>
+               </p>
+            </div>
+      
+      </div>
+   </div>
+
+</body>
+
+<script>
+   function toggleMenu() {
+      const nav = document.getElementById('nav');
+      nav.classList.toggle('show');
+
+      const menuBtnIcon = document.querySelector('#menuBtn i');
+      if (nav.classList.contains('show')) {
+         menuBtnIcon.className = 'fa-solid fa-x';
+      } else {
+         menuBtnIcon.className = 'fa-solid fa-bars';
+      }
+   }
+
+   const mdViewBtn = () => {
+      const view = document.getElementById('viewMenu');
+      console.log('Clicked');
+
+      // Check if 'h-auto' class is already applied to the element
+      const isExpanded = view.classList.contains('h-0') 
+                     ?
+                     (view.classList.remove('h-0'), view.classList.add('h-auto'))  
+                     :
+                     (view.classList.remove('h-auto'), view.classList.add('h-0')) 
+      ;
+      return isExpanded
+   }
+   
+   const viewBtn = () => {
+      const view = document.getElementById('view');
+      console.log('Clicked');
+
+      // Check if 'h-auto' class is already applied to the element
+      const isExpanded = view.classList.contains('h-0') 
+                        ?
+                        (view.classList.remove('h-0'), view.classList.add('h-auto'))  
+                        :
+                        (view.classList.remove('h-auto'), view.classList.add('h-0'));
+      return isExpanded
+   };
+   const removeNavMenu = () => {
+      const view = document.getElementById('viewMenu');
+      const isExpanded = view.classList.contains('h-auto');
+
+      // Toggle the height class based on the current state
+      if (isExpanded) {
+         view.classList.remove('h-auto')
+         view.classList.add('h-0')
+      }
+   }
+
+   const removeNav = () => {
+      const view = document.getElementById('view');
+      const isExpanded = view.classList.contains('h-auto');
+
+      // Toggle the height class based on the current state
+      if (isExpanded) {
+         view.classList.remove('h-auto')
+         view.classList.add('h-0')
+      }
+   }
+
+
+</script>
+</html>

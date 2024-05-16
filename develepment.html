@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <link rel="stylesheet" href="output.css">
+   <title>JRC</title>
+   <style>
+      .nav.show {
+         right: 10px;
+      }
+      .nav.hide {
+         right: -500px;
+      }
+      .active {
+         background-color: #4B5563; /* Update this color as needed */
+      }
+   </style>
+</head>
+<body>
+
+   <header class="fixed z-[100] w-full h-20 bg-slate-600 flex items-center justify-between px-8 md:px-20 ">
+      <h1 class="text-white font-bold text-2xl lg:text-3xl">QR Code<span class="text-slate-900"> Classroom</span> Attendance</h1>
+      <button onclick="toggleMenu()" class="text-xl md:hidden text-white relative duration-300" id="menuBtn" ><i class="fa-solid fa-bars"></i></button>
+      <ul id="nav" class="nav flex flex-col md:hidden absolute right-[-500px] top-[90px] bg-slate-500 p-4 gap-1 lg:gap-4 rounded-md font-bold text-white transition-all duration-500 w-1/2">
+         <a onclick="removeNav()" href="index.html" class="w-full capitalize hover:bg-slate-800 p-2 px-4 rounded-md duration-300" onclick="hideNav()">home</a>
+         <a onclick="removeNav()" href="about.html" class="w-full capitalize hover:bg-slate-800 p-2 px-4 rounded-md duration-300" onclick="hideNav()">About Us</a>
+         <div class="relative z-10 transition-all duration-500">
+            <button onclick="viewBtn()"  class="w-full capitalize hover:bg-slate-800 p-2 px-4 rounded-md duration-300 text-start" >Project Overview <i>&#8595;</i></button>
+            <div id="view" class="absolute bg-slate-500 flex flex-col h-0 pt-4 rounded-md w-full overflow-hidden all duration-500 ">
+               <a href="features.html" class="capitalize hover:bg-slate-800 p-2 lg:px-4 m-2  rounded-md duration-300">Features</a>
+               <a href="develepment.html" class="capitalize hover:bg-slate-800 p-2 lg:px-4 m-2  rounded-md duration-300">Development Process</a>
+               <a href="user.html" class="capitalize hover:bg-slate-800 p-2 lg:px-4 m-2  rounded-md duration-300">User Guide</a>
+               <a href="technoloy.html" class="capitalize hover:bg-slate-800 p-2 lg:px-4 m-2  rounded-md duration-300">Technologies Used</a>
+            </div>
+         </div>
+         <a onclick="removeNav()" href="contact.html" class="w-full capitalize hover:bg-slate-800 p-2 px-4 rounded-md duration-300" onclick="hideNav()">Contact</a>
+      </ul>
+      <!-- md -->
+      <ul class="hidden md:flex text-white font-bold items-center justify-center lg:space-x-2 gap-1 z-40">
+         <a onclick="removeNavMenu()" href="index.html" class="capitalize hover:bg-slate-800 p-2 lg:px-4  rounded-md duration-300">Home</a>
+         <a onclick="removeNavMenu()" href="about.html" class="capitalize hover:bg-slate-800 p-2 lg:px-4 rounded-md duration-300">About Us</a>
+         <!-- <div class="flex items-center "><button class="capitalize hover:bg-slate-800 p-2 lg:px-4 rounded-md duration-300">Project Overview <i class="font-bold md:text-4xl">&#8595;</i></button></div> -->
+         <div class="relative z-10 transition-all duration-500">
+            <button onclick="mdViewBtn()" class="capitalize hover:bg-slate-800 p-2 lg:px-4 rounded-md duration-300 ">Project Overview <i>&#8595;</i></button>
+            <div id="viewMenu" class="absolute bg-slate-600 flex flex-col h-0 pt-4 rounded-md w-full overflow-hidden all duration-500 ">
+               <a href="features.html" class="capitalize hover:bg-slate-800 p-2 lg:px-4 m-2  rounded-md duration-300">Features</a>
+               <a href="develepment.html" class="capitalize hover:bg-slate-800 p-2 lg:px-4 m-2  rounded-md duration-300">Development Process</a>
+               <a href="user.html" class="capitalize hover:bg-slate-800 p-2 lg:px-4 m-2  rounded-md duration-300">User Guide</a>
+               <a href="technoloy.html" class="capitalize hover:bg-slate-800 p-2 lg:px-4 m-2  rounded-md duration-300">Technologies Used</a>
+            </div>
+         </div>
+         <a onclick="removeNavMenu()" href="contact.html" class="capitalize hover:bg-slate-800 p-2 px-4 rounded-md duration-300">Contact</a>
+      </ul>
+   </header>
+   <div id="features" class="bg-slate-700 w-full min-h-screen relative flex items-center justify-center flex-wrap gap-4 md:gap-12 pt-24 text-white">
+      <!-- pic1  -->
+      <div class=" w-full md:px-12 h-[500px] rounded-md flex flex-col md:flex-row items-center justify-between ">
+         <div class="p-4">
+            <h1 class="font-bold text-2xl md:text-6xl mb-4">1. Planning</h1>
+            <p class="text-base md:text-2xl mb-2">Requirements Gathering: Identify the needs of the users (teachers, students, administrators) and the specific functionalities required.</p>
+            <p class="text-base md:text-2xl mb-2">Feasibility Study: Assess the technical and financial feasibility of the project.</p>
+            <p class="text-base md:text-2xl mb-2">Project Planning: Create a project plan outlining the timeline, resources, and milestones.</p>
+         </div>
+         <img class="w-1/2 h-[500px] p-2 rounded-md" src="data:image/jpeg;base64,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" alt="">
+
+      </div>
+      <!-- pic2 -->
+      <div class=" w-full md:px-12 h-[500px] rounded-md flex flex-col md:flex-row-reverse items-center justify-between ">
+         <div class="p-4">
+            <h1 class="font-bold text-2xl md:text-6xl mb-4">2.  Design</h1>
+            <p class="text-base md:text-2xl mb-2">System Architecture: Design the overall system architecture, including the database, server, and client-side components.</p>
+            <p class="text-base md:text-2xl mb-2">User Interface Design: Design intuitive interfaces for both mobile and web applications.</p>
+            <p class="text-base md:text-2xl mb-2">QR Code Generation: Determine the method for generating unique QR codes for each student.</p>
+         </div>
+         <img class="w-1/2 h-[500px] p-2 rounded-md" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKpWy0jOBE7_a5mh_7bOVIkb7VKSByWJDCH1V6H1sl1Q&s" alt="">
+      </div>
+      <!-- pic3 -->
+      <div class=" w-full md:px-12 h-[500px] rounded-md flex flex-col md:flex-row items-center justify-between ">
+         <div class="p-4">
+            <h1 class="font-bold text-2xl md:text-6xl mb-4">3.  Development</h1>
+            <p class="text-base md:text-2xl mb-2">Backend Development: Set up the server and database to store attendance records. </p>
+            <p class="text-base md:text-2xl mb-2">Frontend Development: Develop the mobile application for scanning QR codes. </p>
+            <p class="text-base md:text-2xl mb-2">Integration: Integrate the QR code generation and scanning functionalities. </p>
+         </div>
+         <img class="w-1/2 h-[500px] p-2 rounded-md" src="https://c8.alamy.com/comp/HGG7MD/ideas-development-icons-word-concept-HGG7MD.jpg" alt="">
+      </div>
+      <!-- pic4 -->
+      <div class=" w-full md:px-12 h-[500px] rounded-md flex flex-col md:flex-row-reverse items-center justify-between ">
+         <div class="p-4">
+            <h1 class="font-bold text-2xl md:text-6xl mb-4">4. Testing</h1>
+            <p class="text-base md:text-2xl mb-2">Unit Testing: Test individual components to ensure they work correctly.</p>
+            <p class="text-base md:text-2xl mb-2">Integration Testing: Verify that different components of the system work together as expected.</p>
+            <p class="text-base md:text-2xl mb-2">User Acceptance Testing (UAT): Conduct testing sessions with real users to gather feedback and make necessary adjustments.</p>
+            <p class="text-base md:text-2xl mb-2">Security Testing: Ensure the system is secure against unauthorized access and fraudulent activities.</p>
+         </div>
+         <img class="w-1/2 h-[500px] p-2 rounded-md" src="https://www.perforce.com/sites/default/files/image/2020-01/image-blog-exploratory-testing.jpg" alt="">
+      </div>
+      <!-- pic5 -->
+      <div class=" w-full md:px-12 h-[500px] rounded-md flex flex-col md:flex-row items-center justify-between ">
+         <div class="p-4">
+            <h1 class="font-bold text-2xl md:text-6xl mb-4">5.  Deployment</h1>
+            <p class="text-base md:text-2xl mb-2">Server Setup: Deploy the backend server and database on a reliable hosting platform.</p>
+            <p class="text-base md:text-2xl mb-2">App Distribution: Distribute it directly to users.</p>
+            <p class="text-base md:text-2xl mb-2">Training and Documentation: Provide training sessions and create documentation for users to help them understand how to use the system.</p>
+         </div>
+         <img class="w-1/2 h-[500px] p-2 rounded-md" src="https://mobisoftinfotech.com/resources/wp-content/uploads/2022/01/mobile-app-development-process-step-6-deployment-and-launch.png" alt="">
+      </div>
+      <!-- pic6 -->
+      <div class=" w-full md:px-12 h-[500px] rounded-md flex flex-col md:flex-row-reverse items-center justify-between ">
+         <div class="p-4">
+            <h1 class="font-bold text-2xl md:text-6xl mb-4">6.  Maintenance and Updates</h1>
+            <p class="text-base md:text-2xl mb-2">Monitoring: Continuously monitor the system for any issues or bugs.</p>
+            <p class="text-base md:text-2xl mb-2">Feedback Collection: Gather feedback from users to improve the system.</p>
+            <p class="text-base md:text-2xl mb-2">Regular Updates: Release updates to fix bugs, improve performance, and add new features based on user feedback.</p>
+         </div>
+         <img class="w-1/2 h-[500px] p-2 rounded-md" src="https://static.vecteezy.com/system/resources/previews/036/324/531/non_2x/system-maintenance-error-fixing-trouble-device-updating-software-system-under-maintenance-illustration-software-upgrade-process-on-computer-system-update-people-update-operation-system-vector.jpg" alt="">
+      </div>
+      
+   </div>
+
+</body>
+
+<script>
+   function toggleMenu() {
+      const nav = document.getElementById('nav');
+      nav.classList.toggle('show');
+
+      const menuBtnIcon = document.querySelector('#menuBtn i');
+      if (nav.classList.contains('show')) {
+         menuBtnIcon.className = 'fa-solid fa-x';
+      } else {
+         menuBtnIcon.className = 'fa-solid fa-bars';
+      }
+   }
+
+   const mdViewBtn = () => {
+      const view = document.getElementById('viewMenu');
+      console.log('Clicked');
+
+      // Check if 'h-auto' class is already applied to the element
+      const isExpanded = view.classList.contains('h-0') 
+                     ?
+                     (view.classList.remove('h-0'), view.classList.add('h-auto'))  
+                     :
+                     (view.classList.remove('h-auto'), view.classList.add('h-0')) 
+      ;
+      return isExpanded
+   }
+   
+   const viewBtn = () => {
+      const view = document.getElementById('view');
+      console.log('Clicked');
+
+      // Check if 'h-auto' class is already applied to the element
+      const isExpanded = view.classList.contains('h-0') 
+                        ?
+                        (view.classList.remove('h-0'), view.classList.add('h-auto'))  
+                        :
+                        (view.classList.remove('h-auto'), view.classList.add('h-0'));
+      return isExpanded
+   };
+   const removeNavMenu = () => {
+      const view = document.getElementById('viewMenu');
+      const isExpanded = view.classList.contains('h-auto');
+
+      // Toggle the height class based on the current state
+      if (isExpanded) {
+         view.classList.remove('h-auto')
+         view.classList.add('h-0')
+      }
+   }
+
+   const removeNav = () => {
+      const view = document.getElementById('view');
+      const isExpanded = view.classList.contains('h-auto');
+
+      // Toggle the height class based on the current state
+      if (isExpanded) {
+         view.classList.remove('h-auto')
+         view.classList.add('h-0')
+      }
+   }
+
+
+</script>
+</html>
